@@ -16,3 +16,5 @@ Metrics/MethodLength:
   Max: 21
 Metrics/PerceivedComplexity:
   Max: 9
+Style/FrozenStringLiteralComment:
+  Enabled: false
