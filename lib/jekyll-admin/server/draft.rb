@@ -96,7 +96,7 @@ module JekyllAdmin
       end
 
       def html_content?
-        draft = JekyllAdmin::PageWithoutAFile.new(
+        draft = Jekyll::PageWithoutAFile.new(
           site,
           site.source,
           "_drafts",

@@ -25,7 +25,6 @@ module JekyllAdmin
   autoload :DataFile,         "jekyll-admin/data_file"
   autoload :Directory,        "jekyll-admin/directory"
   autoload :FileHelper,       "jekyll-admin/file_helper"
-  autoload :PageWithoutAFile, "jekyll-admin/page_without_a_file"
   autoload :PathHelper,       "jekyll-admin/path_helper"
   autoload :Server,           "jekyll-admin/server"
   autoload :StaticServer,     "jekyll-admin/static_server"
