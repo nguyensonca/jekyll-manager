@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe JekyllAdmin::URLable do
   subject { JekyllAdmin.site.pages.first }
   let(:scheme) { "http" }
@@ -19,7 +21,7 @@ describe JekyllAdmin::URLable do
   end
 
   context "pages" do
-    subject { JekyllAdmin.site.pages.select(&:html?).first }
+    subject { JekyllAdmin.site.pages.find(&:html?) }
     let(:http_url) { "#{url_base}/page.html" }
     let(:api_url) { "#{url_base}/#{prefix}/pages/page.md" }
 
@@ -89,7 +91,7 @@ describe JekyllAdmin::URLable do
   end
 
   context "data files" do
-    subject { JekyllAdmin::DataFile.all[1] }
+    subject { JekyllAdmin::DataFile.all.find { |f| f.id == "data_file.yml" } }
     let(:http_url) { nil }
     let(:api_url) { "#{url_base}/#{prefix}/data/data_file.yml" }
 
