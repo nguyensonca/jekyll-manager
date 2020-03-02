@@ -3,7 +3,6 @@ rvm: 2.4
 before_install:
   - nvm install 8
   - gem update --system 3.0.6 --no-document
-install: script/bootstrap
 script: script/cibuild
 cache:
   bundler: true
@@ -17,6 +16,3 @@ env:
     - TEST_SUITE=ruby JEKYLL_VERSION="~> 4.0"
 after_success:
   - npm run test:cover:CI
-branches:
-  only:
-    - master
