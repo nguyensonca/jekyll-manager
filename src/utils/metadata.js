@@ -8,7 +8,7 @@ import cloneDeep from 'lodash/cloneDeep';
  * @param {String} namePrefix
  * @return {Object} metadata
  */
-export const addField = (state, namePrefix) => {
+export const addFieldToMetadata = (state, namePrefix) => {
   let tmpState = cloneDeep(state);
   let field = eval(`tmpState.${namePrefix}`);
   if (field === undefined) return tmpState.metadata;
@@ -25,7 +25,7 @@ export const addField = (state, namePrefix) => {
  * @param {String} key
  * @return {Object} metadata
  */
-export const removeField = (state, namePrefix, key) => {
+export const removeFieldFromMetadata = (state, namePrefix, key) => {
   let tmpState = cloneDeep(state);
   let field = eval(`tmpState.${namePrefix}`);
   if (field === undefined) return tmpState.metadata;
@@ -54,7 +54,7 @@ export const removeField = (state, namePrefix, key) => {
  * @param {String} newKey
  * @return {Object} metadata
  */
-export const updateFieldKey = (state, namePrefix, fieldKey, newKey) => {
+export const updateMetadataFieldKey = (state, namePrefix, fieldKey, newKey) => {
   let tmpState = cloneDeep(state);
   let field = eval(`tmpState.${namePrefix}`);
   if (field === undefined) return tmpState.metadata;
@@ -77,7 +77,7 @@ export const updateFieldKey = (state, namePrefix, fieldKey, newKey) => {
  * @param {String} value
  * @return {Object} metadata
  */
-export const updateFieldValue = (state, nameAttr, value) => {
+export const updateMetadataFieldValue = (state, nameAttr, value) => {
   let tmpState = cloneDeep(state);
   eval(`tmpState.${nameAttr} = value`);
   return tmpState.metadata;
@@ -92,7 +92,7 @@ export const updateFieldValue = (state, nameAttr, value) => {
  * @param {String} convertType
  * @return {Object} metadata
  */
-export const convertField = (state, nameAttr, convertType) => {
+export const convertMetadataField = (state, nameAttr, convertType) => {
   let tmpState = cloneDeep(state);
   let field = eval(`tmpState.${nameAttr}`);
   if (field === undefined) return tmpState.metadata;
@@ -116,7 +116,7 @@ export const convertField = (state, nameAttr, convertType) => {
  * @param {Number} targetInd
  * @return {Object} metadata
  */
-export const moveArrayItem = (state, namePrefix, srcInd, targetInd) => {
+export const moveMetadataArrayItem = (state, namePrefix, srcInd, targetInd) => {
   let tmpState = cloneDeep(state);
   let arr = eval(`tmpState.${namePrefix}`);
   if (!_.isArray(arr)) return tmpState.metadata;

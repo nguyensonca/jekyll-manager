@@ -1,5 +1,5 @@
 import fetch from 'isomorphic-fetch';
-import { addNotification } from '../actions/notifications';
+import { addNotification } from '../ducks/notifications';
 import {
   getErrorMessage,
   getFetchErrorMessage,
