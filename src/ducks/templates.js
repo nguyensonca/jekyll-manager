@@ -1,8 +1,8 @@
 import _ from 'underscore';
 import { CLEAR_ERRORS, validationError } from './utils';
-import { get, put, del } from '../utils/fetch';
+import { get, put } from '../utils/fetch';
 import { validator } from '../utils/validation';
-import { slugify, trimObject } from '../utils/helpers';
+import { trimObject } from '../utils/helpers';
 import {
   getFilenameNotValidMessage,
   getContentRequiredMessage,
@@ -76,9 +76,9 @@ export const putTemplate = (
     }
   } else {
     if (include_front_matter == false) {
-      payload = { path: path, raw_content };
+      payload = { path, raw_content };
     } else {
-      payload = { path: path, front_matter, raw_content };
+      payload = { path, front_matter, raw_content };
     }
   }
 

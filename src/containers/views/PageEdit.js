@@ -100,7 +100,7 @@ export class PageEdit extends Component {
 
   render() {
     const { isFetching, page, errors, updateTitle, updateBody, updatePath,
-      updated, fieldChanged, params, config } = this.props;
+      updated, fieldChanged, params } = this.props;
 
     if (isFetching) {
       return null;
@@ -115,14 +115,14 @@ export class PageEdit extends Component {
     };
 
     const { name, path, raw_content, http_url, front_matter } = page;
-    const [directory, ...rest] = params.splat;
+    const directory = params.splat[0];
 
     const layout = front_matter.layout || '';
     const title = front_matter.title || '';
 
     const inputPath = <InputPath onChange={updatePath} type="pages" path={path} />;
     const metafields = (
-      <Metadata ref="frontmatter" fields={{ layout, title, raw_content, path: path, ...front_matter }} />
+      <Metadata ref="frontmatter" fields={{ layout, title, raw_content, path, ...front_matter }} />
     );
 
     return (
@@ -205,7 +205,6 @@ PageEdit.propTypes = {
   params: PropTypes.object.isRequired,
   router: PropTypes.object.isRequired,
   route: PropTypes.object.isRequired,
-  config: PropTypes.object.isRequired,
   new_field_count: PropTypes.number
 };
 
@@ -215,7 +214,6 @@ const mapStateToProps = (state) => ({
   fieldChanged: state.metadata.fieldChanged,
   updated: state.pages.updated,
   errors: state.utils.errors,
-  config: state.config.config,
   new_field_count: state.metadata.new_field_count
 });
 
