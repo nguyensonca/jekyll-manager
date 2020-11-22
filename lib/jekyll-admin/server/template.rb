@@ -95,12 +95,7 @@ module JekyllAdmin
       end
 
       def front_matter?(file)
-        file_path = sanitized_path(file)
-        if file_contents(file_path) =~ Jekyll::Document::YAML_FRONT_MATTER_REGEXP
-          true
-        else
-          false
-        end
+        Jekyll::Document::YAML_FRONT_MATTER_REGEXP.match?(file_contents(sanitized_path(file)))
       end
 
       def write_front_matter?
