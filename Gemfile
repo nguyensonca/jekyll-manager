@@ -15,3 +15,9 @@ gem "jekyll-sitemap"
 
 # theme
 gem "test-theme", :path => "spec/fixtures/test-theme"
+group :jekyll_plugins do
+  gem "jekyll-gist"
+  gem "jekyll-coffeescript"
+  gem "jekyll-assets"
+  gem "jekyll-manager"
+end
